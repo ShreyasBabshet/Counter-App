@@ -40,13 +40,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 running=false;
+
             }
         });
         rest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 running=false;
-                count.setText("0");
+                cnt=0;
+                count.setText(String.valueOf(cnt));
             }
         });
 
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
     class newThread extends Thread{
         @Override
         public void run() {
+            if(running==false){
+                cnt=0;
+            }
             while(running){
 
                 cnt++;
